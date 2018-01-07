@@ -1,0 +1,7 @@
+baseURL = "https://bonde-docs.com/"
+languageCode = "en-us"
+title = "Bonde Docs"
+theme = "hugo-theme-learn"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
