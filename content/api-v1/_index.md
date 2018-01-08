@@ -1,8 +1,7 @@
 +++
 title = "API-V1"
 chapter = true
-weight = 5
-pre = "<b>1. </b>"
+weight = 4
 +++
 
 ### API-V1
