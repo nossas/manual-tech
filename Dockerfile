@@ -23,4 +23,4 @@ COPY . /usr/share/blog
 RUN hugo -d /usr/share/nginx/html/
 
 ENV HUGO_BASE_URL http://localhost:1313
-CMD hugo server -b ${HUGO_BASE_URL} --bind=0.0.0.0
+CMD [ "hugo", "server", "-b", "${HUGO_BASE_URL}", "--bind=0.0.0.0" ]
