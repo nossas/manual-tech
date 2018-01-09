@@ -1,4 +1,12 @@
 pipeline:
+  hugo-check:
+    image: nossas/bonde-docs
+    commands:
+      - hugo check
+    when:
+      event: [push, tag]
+
+pipeline:
   publish-docker:
     image: plugins/docker
     repo: nossas/bonde-docs
