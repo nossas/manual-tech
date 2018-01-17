@@ -8,7 +8,7 @@ weight = 6
 > **POST** `https://data.bonde.org/graphql`
 
 
-#### Query Params
+#### Query Variables
 
 | name | type | required | description |
 | ------ | ----- | -------- | ------- |
