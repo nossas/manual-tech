@@ -6,12 +6,12 @@ pipeline:
     when:
       event: [push, tag]
 
-  publish:
+  staging-publish:
     image: plugins/docker
     repo: nossas/bonde-docs
     secrets: [ docker_username, docker_password ]
     tags:
-      - ${DRONE_BRANCH}
+      - ${DRONE_BRANCH/\//-}
     when:
       status: success
       branch: [hotfix/*, release/*, feature/*, develop]
@@ -29,6 +29,16 @@ pipeline:
       status: success
       branch: [hotfix/*, release/*, feature/*, develop]
 
+  production-publish:
+    image: plugins/docker
+    repo: nossas/bonde-docs
+    secrets: [ docker_username, docker_password ]
+    tags:
+      - ${DRONE_TAG##v}
+    when:
+      status: success
+      branch: tag
+
   production-deploy-bonde-docs:
     image: peloton/drone-rancher
     group: deploying_prod
@@ -41,8 +51,6 @@ pipeline:
     when:
       status: success
       branch: tag
-
-
 
   notify:
     image: plugins/slack
