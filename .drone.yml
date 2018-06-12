@@ -6,27 +6,51 @@ pipeline:
     when:
       event: [push, tag]
 
-  publish:
+  staging-publish:
     image: plugins/docker
     repo: nossas/bonde-docs
     secrets: [ docker_username, docker_password ]
     tags:
-      - ${DRONE_BRANCH}
+      - ${DRONE_BRANCH/\//-}
     when:
       status: success
-      branch: [hotfix-*, release-*, feature-*, develop]
+      branch: [hotfix/*, release/*, feature/*, develop]
 
-  deploy-rancher-bonde-docs:
+  staging-deploy-bonde-docs:
     image: peloton/drone-rancher
+    group: deploying
     url: http://cluster.bonde.org
-    service: partners/bonde-docs
-    docker_image: nossas/bonde-docs:${DRONE_BRANCH}
+    service: webservers/docs
+    docker_image: nossas/bonde-docs:${DRONE_BRANCH/\//-}
     timeout: 360
     confirm: true
     secrets: [ rancher_access_key, rancher_secret_key ]
     when:
       status: success
-      branch: [hotfix-*, release-*, feature-*, develop]
+      branch: [hotfix/*, release/*, feature/*, develop]
+
+  production-publish:
+    image: plugins/docker
+    repo: nossas/bonde-docs
+    secrets: [ docker_username, docker_password ]
+    tags:
+      - ${DRONE_TAG##v}
+    when:
+      status: success
+      branch: tag
+
+  production-deploy-bonde-docs:
+    image: peloton/drone-rancher
+    group: deploying_prod
+    url: http://cluster.bonde.org
+    service: webservers/docs
+    docker_image: "nossas/bonde-docs:${DRONE_TAG##v}"
+    timeout: 360
+    confirm: true
+    secrets: [ rancher_access_key, rancher_secret_key ]
+    when:
+      status: success
+      branch: tag
 
   notify:
     image: plugins/slack
