@@ -4,8 +4,10 @@
   "description": "Conteúdo destinado a auxiliar na democratização do conhecimento acumulado pelo time de tecnologia do Nossas.",
   "main": "",
   "scripts": {
+    "start": "serve public",
     "develop": "gatsby develop",
     "build": "gatsby build",
+    "prestart": "npm run build",
     "clean:public": "rm -rf public",
     "clean": "npm run clean:public",
     "lint": "./node_modules/.bin/eslint --cache --ext .js,.jsx --ignore-pattern public .",
@@ -45,7 +47,8 @@
     "react": "^16.5.2",
     "react-disqus-comments": "^1.2.0",
     "react-dom": "^16.5.2",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
