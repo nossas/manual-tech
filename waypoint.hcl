@@ -2,7 +2,7 @@ project = "bonde"
 
 app "docs" {
   labels = {
-      "service" = "bonde-docs",
+      "service" = "website",
       "env" = "dev"
   }
 

@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "start": "serve public",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "build": "gatsby build",
     "prestart": "npm run build",
     "clean:public": "rm -rf public",
