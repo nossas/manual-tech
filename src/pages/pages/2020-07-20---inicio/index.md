@@ -9,5 +9,5 @@ path: "/inicio"
 * Bonde formulário
 * Bonde doação
 * Bonde chatbot
-* Bonde redes
+* [Bonde redes](/redes)
 * Bonde dados
