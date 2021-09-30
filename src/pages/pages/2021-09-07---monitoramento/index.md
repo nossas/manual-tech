@@ -14,3 +14,13 @@ Todas as aplicações da plataforma precisam ter suas dependências externas mon
 
 Em geral, nas aplicações é necessário um agente para interagir com o servidor da elastic, utilizamos o [agente de nodejs](https://www.elastic.co/guide/en/apm/agent/nodejs/current/index.html).
 
+## Aplicações monitoradas
+
+* api-rest
+* listener-match
+* listener-solidarity
+* listener-redes
+* listener-redes-geolocation
+* webhook-solidarity-count
+* webhook-mautic-zendesk
+* 
