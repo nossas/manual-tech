@@ -4,7 +4,29 @@ layout: page
 path: "/redes"
 ---
 
-## Como adicionar novos grupos
+## Histórico
+
+O módulo de redes surge em março de 2020, a partir da consolidação dos aprendizados trazidos com a produção do guia de rede de solidariedade e com o acúmulo de experiência cde uso das ferramentas produzidas para o Mapa do Acolhimento.
+
+Desde então mantemos duas estrutura paralelas de dados e código-fonte, contendo funcionalidades necessárias para o funcionamento tanto para o Mapa do Acolhimento quanto para outras comunidades que fazem uso do módulo de redes.
+
+## Código-fonte
+
+Foram criados webhooks de integração com zendesk e mautic para o Mapa. E listeners para integração entre formulário da página com o módulo de redes e georreferenciamento através do cep para o Redes. O cliente foi unificado para tentar simplificar a manutenção da interface.
+
+* [Mapa](https://github.com/nossas/mapa-do-acolhimento/tree/main/packages)
+* [Redes](https://github.com/nossas/bonde-redes/tree/main/packages)
+* [Client](https://github.com/nossas/bonde-clients/tree/main/clients/packages/redes-client)
+
+## Banco de dados
+
+As tabelas utilizadas começam com redes_ e solidarity_.
+
+![Diagram de dados](./redes_diagram.png "Diagram de dados")
+
+## FAQ
+
+### Como adicionar novos grupos
 
 É preciso adicionar dois registros na tabela rede_groups um com a coluna `is_volunteer` com o valor `false` e outro com o `true`.
 
